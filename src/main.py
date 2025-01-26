@@ -105,6 +105,19 @@ def load_model_and_evaluate(pollutant, plot_results=True):
         plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--')
         plt.show()
 
+        feature_importances = model.feature_importances_
+        sorted_idx = np.argsort(feature_importances)[::-1]
+        sorted_importances = feature_importances[sorted_idx]
+        sorted_features = [feature_cols[i] for i in sorted_idx]
+
+        plt.figure(figsize=(10, 6))
+        plt.barh(sorted_features, sorted_importances, align='center')
+        plt.xlabel("Feature Importance")
+        plt.ylabel("Features")
+        plt.title(f"Feature Importances for '{pollutant.upper()}' Prediction")
+        plt.gca().invert_yaxis()
+        plt.show()
+
 
 def train_prophet_and_save_model(pollutant):
     """
