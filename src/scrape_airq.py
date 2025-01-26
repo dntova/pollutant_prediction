@@ -17,7 +17,7 @@ api_token = 'f55a05f44b21117e6aea16d6dc0ce899747fdd6f'
 
 # Define date range
 start_date = datetime(2024, 6, 30)
-end_date = datetime(2024, 10, 31)
+end_date = datetime(2024, 11, 30)
 
 # Define pollutants
 pollutants = ['pm25', 'pm10', 'no2', 'o3', 'so2', 'co']
